@@ -14,27 +14,27 @@
 
 body{
     display: grid;
-    grid-template-columns: [1] 20vh [2] 80vh [3] auto;
-    grid-template-rows: [1] 40vh [2] 60vh;
+    grid-template-columns: [1] 10px [2] 20vh [3] 80vh [4] auto;
+    grid-template-rows: [1] 10px [2] 40vh [3] 60vh [4] auto;
+    width: 100%;
 
 }
 
 .bok{
     grid-column-end: 1;
     grid-row-start: 1;
-    grid-row-end: 2;
+    grid-row-end: span(1);
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    width: 20vh;
     height: 100vh;
 
-    background-color: #272727;
-    border-right: 2px solid rgb(255, 0, 0);
+    background-color: #0b0c10;
+    border-right: 2px solid #66fcf1;
     
-    color: rgb(255, 0, 0);
+    color: #c5c6c7;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     font-size: larger;
@@ -45,12 +45,16 @@ ul {
     }
 
 .pole{
-    grid-column-start: 2;
-    grid-row-start: 1;
-    grid-row-end: span(1);
-    width: 80vh;
-    background-color: rgb(36, 36, 36);
-    height: 40vh;
+    grid-column: 1/span(2);
+    grid-row: 1/span(1);
+    background-color: #1f2833;
+}
+
+.wynik{
+    grid-column-start: 1;
+    grid-row: 2/span(1);
+    background-color: #1f2833;
+
 }
 
 
@@ -67,7 +71,10 @@ ul {
             </li>
         </ul>
     </div>
-    <div class="pole"></div>
-    <div class="wynik"></div>
+    <div class="pole">
+    </div>
+    <div class="wynik">
+        
+    </div>
 </body>
 </html>
