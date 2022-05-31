@@ -15,9 +15,9 @@ app.get('/', (req, res) => {
   res.render('index',{title:'Strona Glowna'})
 })
 app.get('/lista', (req, res) => {
-  console.log(GetFromDB("select * from wszystko"))
-  res.render('lista', {Data:GetFromDB("select * from wszystko")})
-})
+//   console.log(GetFromDB("select * from wszystko"))
+   res.render('lista', {Data:GetFromDB("select * from wszystko")})
+ })
 
 app.listen(port, () => {
   console.log(`Aplikacja dziala na porcie: ${port}`)

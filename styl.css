@@ -1,0 +1,13 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.bok{
+    width: 20vh;
+    background-color: rgb(85, 9, 9);
+}
+
+ul {
+    list-style-type: none;
+}
