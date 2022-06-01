@@ -1,13 +1,70 @@
 * {
     padding: 0;
     margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+body{
+    display: flex;
+    width: 100%;
+
 }
 
 .bok{
-    width: 20vh;
-    background-color: rgb(85, 9, 9);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 20vw;
+    height: 100vh;
+
+    background-color: #0b0c10;
+    border-right: 2px solid #66fcf1;
+    
+    color: #c5c6c7;
+    font-size: larger;
 }
 
-ul {
-    list-style-type: none;
+.prawo{
+    display: flex;
+    flex-direction: column;
+}
+
+.tekst{
+
+    width: 80vw;
+    height: 50vh;
+    background-color: #1f2833;
+}
+
+.wynik{
+
+    width: 80vw;
+    height: 50vh;
+    background-color: #1f2833;
+
+}
+
+.wynik table{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 30px;
+    width: calc(80vw - 60px);
+    height: calc(50vh - 60px);
+
+    color: #66fcf1;
+    border: 2px solid #66fcf1;
+    
+}
+
+table td, th{
+    border: 2px solid #66fcf1;
+    border-collapse: collapse;
+    width: 100px;
+    height: 10px;
+    text-align: center;
 }

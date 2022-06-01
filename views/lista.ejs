@@ -3,105 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styl.css">
+    <link rel="stylesheet" href="./styl.css">
     <title>Document</title>
-    <style>
 
-* {
-    padding: 0;
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-}
-
-body{
-    display: flex;
-    width: 100%;
-
-}
-
-.bok{
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    width: 20vw;
-    height: 100vh;
-
-    background-color: #0b0c10;
-    border-right: 2px solid #66fcf1;
-    
-    color: #c5c6c7;
-    font-size: larger;
-}
-
-ul {
-    list-style-type: none;
-    }
-
-li {
-    
-}    
-
-.prawo{
-    display: flex;
-    flex-direction: column;
-}
-.pole{
-
-    width: 80vw;
-    height: 50vh;
-    background-color: #1f2833;
-}
-
-.wynik{
-
-    width: 80vw;
-    height: 50vh;
-    background-color: #1f2833;
-
-}
-
-.wynik p{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    margin: 30px;
-    padding: 30px;
-    width: calc(80vw - 120px);
-    height: calc(50vh - 120px);
-
-    color: #66fcf1;
-    border: 2px solid #66fcf1;
-}
-
-
-    </style>
 </head>
 <body>
     <div class="bok">
-        <ul>
-            <li>
-                12
-            </li>
-            <li>
-                23
-            </li>
-        </ul>
     </div>
+    <div class="prawo">
+        <div class="tekst"></div>
+        <div class="wynik">
+            <table>
+
     <% for(element of data) { %>
-        <div class="rekord">
-        <% for(key in element) { %>
-            <div class="pole">
-                <%= key %>
+        <tr>
+            <% for(key in element) { %>
+                  <%= key %>
+                  <td> <div class="wartosc">
+                    <%= element[key] %>
+                </div></td>
+                <% } %>
+            </tr>
             </div>
-            <div class="wartosc">
-                <%= element[key] %>
-            </div>
-            <% } %>
-        </div>
+          
+        
     <% } %>
+</table>
+ </div>
+</div>
 </body>
 </html>
