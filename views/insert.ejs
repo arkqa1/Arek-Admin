@@ -5,15 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><% title %></title>
+    <link rel="stylesheet" href="./styl.css">
+    <link rel="stylesheet" href="./light.css">
+    <link rel="stylesheet" href="./dark.css">
 </head>
 <body>
+    <div class="bok"></div>
+    <div class="prawo">
+        <div class="tekst">
+    <table>
+
     <form action="/insert?t=<%= table %>">
         <% for(col of columns) { %>
-            <label>
+            <tr>
+            <td>
                 <%= col.column_name %>
                 <input type="text" name="<%= col.column_name %>">
-            </label><br>
+            </td></tr><br>
         <% } %>
     </form>
+</table>
+</div>
+<div class="wynik">
+
+</div></div>
 </body>
 </html>

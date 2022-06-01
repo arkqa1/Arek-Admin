@@ -20,34 +20,35 @@ body{
     width: 20vw;
     height: 100vh;
 
-    background-color: #0b0c10;
-    border-right: 2px solid #66fcf1;
+    background-color: var(--dark_left_bgc);
+    border-right: 2px solid var(--primary_c);
     
-    color: #c5c6c7;
+    color: var(--dark_font_color);
     font-size: larger;
 }
 
 .prawo{
     display: flex;
     flex-direction: column;
+    
 }
 
 .tekst{
 
     width: 80vw;
     height: 50vh;
-    background-color: #1f2833;
+    background-color: var(--dark_bgc);
 }
 
 .wynik{
 
     width: 80vw;
     height: 50vh;
-    background-color: #1f2833;
+    background-color: var(--dark_bgc);
 
 }
 
-.wynik table{
+table{
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -56,12 +57,12 @@ body{
     width: calc(80vw - 60px);
     height: calc(50vh - 60px);
 
-    color: #66fcf1;
+    color: var(--primary_c);
 
 }
 
 table td {
-    border: 2px solid #66fcf1;
+    border: 2px solid var(--primary_c);
     border-collapse: collapse;
     width: 170px;
     height: 25px;
@@ -69,9 +70,9 @@ table td {
 }
 
 table th{
-    background-color: #66fcf1;
-    color: #1f2833;
-    border: 2px solid #66fcf1;
+    background-color: var(--primary_c);
+    color: var(--dark_bgc);
+    border: 2px solid var(--primary_c);
     border-collapse: collapse;
     width: 170px;
     height: 20px;
@@ -79,5 +80,31 @@ table th{
 }
 
 td:hover {
-    background-color: #475668;
+    background-color: var(--dark_hover);
 }
+ul {
+    list-style-type: none;
+
+}
+
+ul a{
+    color: var(--primary_c);
+    text-decoration: none;
+    margin: 10px;
+}
+
+a:hover{
+    border-bottom: 1px solid var(--primary_c);
+}
+
+.tekst {
+    display: flex;
+    align-items: center;
+    color: var(--primary_c);
+}
+
+.tekst form{
+    margin: 30px;
+    padding: 10px;
+}
+
