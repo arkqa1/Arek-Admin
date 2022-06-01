@@ -21,7 +21,6 @@ var pool = mysql.createPool({
   host: 'localhost',
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
-  database: 'komis'
 })
 // router 
 
@@ -30,7 +29,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/table', (req, res) => {
-  pool.query(`SELECT * FROM ${req.query.t};`, (err, result, fields) => {
+  pool.query(`SELECT * FROM ${req.query.d}.${req.query.t};`, (err, result, fields) => {
     res.render('table', { title: "Lista", data: result || err })
   })
 })
@@ -43,7 +42,7 @@ app.get("/databases", (req, res) => {
 
 app.get("/tables", (req, res) => {
   pool.query(`SELECT table_name FROM information_schema.tables WHERE table_schema='${req.query.d}';`, (err, result, fields) => {
-    res.render('tables', { title: "Tabele", tables: result || err })
+    res.render('tables', { title: "Tabele", database: req.query.d, tables: result || err })
   })
 })
 
@@ -51,6 +50,13 @@ app.get("/insert", (req, res) => {
   pool.query(`SELECT DISTINCT column_name FROM information_schema.columns WHERE table_name='${req.query.t}';`, (err, result, fields) => {
     console.log(result)
     res.render('insert', { title: "Dodaj", table: req.query.t, columns: result || err })
+  })
+})
+
+app.get("/update", (req, res) => {
+  pool.query(`SELECT * FROM ${req.query.d}.${req.query.t};`, (err, result, fields) => {
+    console.log(result)
+    res.render('update', { title: "Aktualizuj", table: req.query.t, data: result || err })
   })
 })
 
