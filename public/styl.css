@@ -49,7 +49,7 @@ body{
 
 .wynik table{
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 
     margin: 30px;
@@ -57,14 +57,27 @@ body{
     height: calc(50vh - 60px);
 
     color: #66fcf1;
-    border: 2px solid #66fcf1;
-    
+
 }
 
-table td, th{
+table td {
     border: 2px solid #66fcf1;
     border-collapse: collapse;
-    width: 100px;
-    height: 10px;
+    width: 170px;
+    height: 25px;
     text-align: center;
+}
+
+table th{
+    background-color: #66fcf1;
+    color: #1f2833;
+    border: 2px solid #66fcf1;
+    border-collapse: collapse;
+    width: 170px;
+    height: 20px;
+    text-align: center;
+}
+
+td:hover {
+    background-color: #475668;
 }

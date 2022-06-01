@@ -14,16 +14,19 @@
         <div class="tekst"></div>
         <div class="wynik">
             <table>
-
-    <% for(name in data[0]) { %>
-        <th><%= name %></th>
-    <% } %>
-    <% for(element of data) { %>
-        <tr>
-            <% for(key in element) { %>
-                <td><div class="wartosc">
-                    <%= element[key] %>
-                </div></td>
+                <% for(name in data[0]) { %>
+                    <th>
+                        <%= name %>
+                    </th>
+                <% } %>
+                <% for(element of data) { %>
+                <tr>
+                    <% for(key in element) { %>
+                    <td>
+                        <div class="wartosc">
+                        <%= element[key] %>
+                    </div>
+                </td>
             <% } %>
         </tr>
     <% } %>
