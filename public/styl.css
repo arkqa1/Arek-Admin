@@ -79,7 +79,7 @@ table th{
     text-align: center;
 }
 
-td:hover {
+.wynik td:hover {
     background-color: var(--dark_hover);
 }
 ul {
@@ -108,3 +108,8 @@ a:hover{
     padding: 10px;
 }
 
+iframe{
+    width: 19vw;
+    height: 100vh;
+    border: none;
+}
