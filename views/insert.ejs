@@ -8,7 +8,12 @@
 </head>
 <body>
     <form action="/insert?t=<%= table %>">
-        
+        <% for(col of columns) { %>
+            <label>
+                <%= col.column_name %>
+                <input type="text" name="<%= col.column_name %>">
+            </label><br>
+        <% } %>
     </form>
 </body>
 </html>

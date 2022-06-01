@@ -37,20 +37,21 @@ app.get('/table', (req, res) => {
 
 app.get("/databases", (req, res) => { 
   pool.query(`SHOW DATABASES;`, (err, result, fields) => {
-    console.log(result)
     res.render('databases', { title: "Baza Danych", databases: result || err })
   })
 })
 
 app.get("/tables", (req, res) => {
   pool.query(`SELECT table_name FROM information_schema.tables WHERE table_schema='${req.query.d}';`, (err, result, fields) => {
-    console.log(result)
     res.render('tables', { title: "Tabele", tables: result || err })
   })
 })
 
 app.get("/insert", (req, res) => {
-  res.render('insert', { title: "Dodaj", table: req.query.t })
+  pool.query(`SELECT column_name FROM information_schema.columns WHERE table_name='${req.query.t}';`, (err, result, fields) => {
+    console.log(result)
+    res.render('insert', { title: "Dodaj", table: req.query.t, columns: result || err })
+  })
 })
 
 
