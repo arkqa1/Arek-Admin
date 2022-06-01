@@ -10,7 +10,7 @@
     <ul>
         <% for(t of tables) { %>
             <li>
-                <a href="/table?t=<%= t %>"><%= t %></a>
+                <a href="/table?t=<%= t.table_name %>"><%= t.table_name %></a>
             </li>
         <% } %>
     </ul>
