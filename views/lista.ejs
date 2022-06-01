@@ -10,33 +10,29 @@
 * {
     padding: 0;
     margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
 }
 
 body{
-    display: grid;
-    grid-template-columns: [1] 10px [2] 20vh [3] 80vh [4] auto;
-    grid-template-rows: [1] 10px [2] 40vh [3] 60vh [4] auto;
+    display: flex;
     width: 100%;
 
 }
 
 .bok{
-    grid-column-end: 1;
-    grid-row-start: 1;
-    grid-row-end: span(1);
 
     display: flex;
     justify-content: center;
     align-items: center;
 
+    width: 20vw;
     height: 100vh;
 
     background-color: #0b0c10;
     border-right: 2px solid #66fcf1;
     
     color: #c5c6c7;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
     font-size: larger;
 }
 
@@ -44,17 +40,41 @@ ul {
     list-style-type: none;
     }
 
+li {
+    
+}    
+
+.prawo{
+    display: flex;
+    flex-direction: column;
+}
 .pole{
-    grid-column: 1/span(2);
-    grid-row: 1/span(1);
+
+    width: 80vw;
+    height: 50vh;
     background-color: #1f2833;
 }
 
 .wynik{
-    grid-column-start: 1;
-    grid-row: 2/span(1);
+
+    width: 80vw;
+    height: 50vh;
     background-color: #1f2833;
 
+}
+
+.wynik p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 30px;
+    padding: 30px;
+    width: calc(80vw - 120px);
+    height: calc(50vh - 120px);
+
+    color: #66fcf1;
+    border: 2px solid #66fcf1;
 }
 
 
@@ -71,10 +91,12 @@ ul {
             </li>
         </ul>
     </div>
+    <div class="prawo">
     <div class="pole">
     </div>
     <div class="wynik">
-        
+        <p>3</p>
+    </div>    
     </div>
 </body>
 </html>
