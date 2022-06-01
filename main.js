@@ -29,10 +29,26 @@ app.get('/', (req, res) => {
   res.render('index', { title: 'Strona Glowna' })
 })
 
-app.get('/lista', (req, res) => {
-  pool.query(`SELECT * FROM ${req.query.table};`, (err, result, fields) => {
-    res.render('lista', { title: "Lista", data: result || err })
+app.get('/table', (req, res) => {
+  pool.query(`SELECT * FROM ${req.query.t};`, (err, result, fields) => {
+    res.render('table', { title: "Lista", data: result || err })
   })
+})
+
+app.get("/databases", (req, res) => { 
+  pool.query(`SHOW DATABASES;`, (err, result, fields) => {
+    res.render('databases', { title: "Baza Danych", data: result || err })
+  })
+})
+
+app.get("/tables", (req, res) => {
+  pool.query(`SHOW TABLES IN ${req.query.d};`, (err, result, fields) => {
+    res.render('tables', { title: "Tabele", data: result || err })
+  })
+})
+
+app.get("/insert", (req, res) => {
+  res.render('insert', { title: "Dodaj", table: req.query.t })
 })
 
 
