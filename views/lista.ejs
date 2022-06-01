@@ -91,12 +91,17 @@ li {
             </li>
         </ul>
     </div>
-    <div class="prawo">
-    <div class="pole">
-    </div>
-    <div class="wynik">
-        <p>3</p>
-    </div>    
-    </div>
+    <% for(element of data) { %>
+        <div class="rekord">
+        <% for(key in element) { %>
+            <div class="pole">
+                <%= key %>
+            </div>
+            <div class="wartosc">
+                <%= element[key] %>
+            </div>
+            <% } %>
+        </div>
+    <% } %>
 </body>
 </html>
