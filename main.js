@@ -48,7 +48,7 @@ app.get("/tables", (req, res) => {
 })
 
 app.get("/insert", (req, res) => {
-  pool.query(`SELECT column_name FROM information_schema.columns WHERE table_name='${req.query.t}';`, (err, result, fields) => {
+  pool.query(`SELECT DISTINCT column_name FROM information_schema.columns WHERE table_name='${req.query.t}';`, (err, result, fields) => {
     console.log(result)
     res.render('insert', { title: "Dodaj", table: req.query.t, columns: result || err })
   })
