@@ -2,6 +2,7 @@ const express = require('express')
 const mysql = require('mysql')
 const dotenv = require('dotenv')
 const path = require('path')
+const bodyParser = require('body-parser')
 
 // load .env
 dotenv.config()
@@ -10,6 +11,10 @@ dotenv.config()
 const app = express()
 const port = 3000
 app.use(express.static('public'))
+app.use( bodyParser.json() );       // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+  extended: true
+})); 
 
 // ejs setup
 app.set('view engine', 'ejs')
@@ -49,14 +54,14 @@ app.get("/tables", (req, res) => {
 app.get("/insert", (req, res) => {
   pool.query(`SELECT DISTINCT column_name FROM information_schema.columns WHERE table_name='${req.query.t}';`, (err, result, fields) => {
     console.log(result)
-    res.render('insert', { title: "Dodaj", table: req.query.t, columns: result || err })
+    res.render('insert', { title: "Dodaj", table: req.query.t, database: req.query.d, columns: result || err })
   })
 })
 
 app.get("/update", (req, res) => {
   pool.query(`SELECT * FROM ${req.query.d}.${req.query.t};`, (err, result, fields) => {
     console.log(result)
-    res.render('update', { title: "Aktualizuj", table: req.query.t, data: result || err })
+    res.render('update', { title: "Aktualizuj", database: req.query.d, table: req.query.t, data: result || err })
   })
 })
 
@@ -66,6 +71,30 @@ app.get("/delete", (req, res) => {
     res.render('delete', { title: "Usuń", table: req.query.t, database: req.query.d, data: result || err })
   })
 })
+
+app.post("/insert", (req, res) => {
+  const keys = Object.keys(req.body)
+  const values = Object.values(req.body).map(v => `'${v}'`)
+  const query = `INSERT INTO ${req.query.d}.${req.query.t} (${keys.join(", ")}) VALUES (${values.join(", ")});`
+  pool.query(query, (err, result, fields) => {
+    res.redirect('/table?d=' + req.query.d + '&t=' + req.query.t)
+  })
+})
+
+// app.post("/delete", (req, res) => {
+//   const data = req.body
+//   console.log(data)
+//   const toDelete = data.map(d => d.delete == 'on')
+//   data.forEach(d => delete d.delete)
+//   const requirements = data
+//     .map((k, v) => `${k} = '${v}'`)
+//     .join(" AND ")
+//   console.log(requirements)
+//   // const query = `DELETE FROM ${req.query.d}.${req.query.t} WHERE ${requirements};`
+//   // pool.query(query, (err, result, fields) => {
+//     res.redirect('/table?d=' + req.query.d + '&t=' + req.query.t)
+//   // })
+// })
 
 
 app.listen(port, () => {

@@ -1,36 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><% title %></title>
+    <title>
+        <% title %>
+    </title>
     <link rel="stylesheet" href="./styl.css">
     <link rel="stylesheet" href="./light.css">
     <link rel="stylesheet" href="./dark.css">
 </head>
+
 <body>
     <div class="bok">
-        <iframe src="./tables.ejs"></iframe>
+        <iframe src="/databases"></iframe>
     </div>
     <div class="prawo">
         <div class="tekst">
-    <table>
+            <table>
+                <form method="post" action="/insert?d=<%= database %>&t=<%= table %>">
+                    <% for(col of columns) { %>
+                        <tr>
+                            <td>
+                                <%= col.column_name %>
+                                <input type="text" name="<%= col.column_name %>">
+                            </td>
+                        </tr><br>
+                    <% } %>
+                    <input type="submit" value="Insert">
+                </form>
+            </table>
+        </div>
+        <div class="wynik">
 
-    <form action="/insert?t=<%= table %>">
-        <% for(col of columns) { %>
-            <tr>
-            <td>
-                <%= col.column_name %>
-                <input type="text" name="<%= col.column_name %>">
-            </td></tr><br>
-        <% } %>
-        <input type="submit" value="Insert">
-    </form>
-</table>
-</div>
-<div class="wynik">
-
-</div></div>
+        </div>
+    </div>
 </body>
+
 </html>

@@ -11,25 +11,27 @@
 </head>
 
 <body>
-    <form action="/insert?t=<%= table %>">
-        <table>
+    <table>
         <% for(name in data[0]) { %>
             <th>
                 <%= name %>
             </th>
-        <% } %>
-        <% for(element of data) { %>
-            <tr>
-                <% for(key in element) { %>
+            <% } %>
+            <% for(element of data) { %>
+                <tr>
+                    <form method="post" action="/update?d=<%= database %>&t=<%= table %>">
+                    <% for(key in element) { %>
+                        <td>
+                            <input type="text" name="<%= key %>" value="<%= element[key] %>">
+                        </td>
+                    <% } %>
                     <td>
-                        <input type="text" name="<%= key %>" value="<%= element[key] %>">
+                        <input type="submit" value="Insert">
                     </td>
-                <% } %>
-            </tr>
-        <% } %>
-        </table>
-        <input type="submit" value="Insert">
-    </form>
+                </tr>
+            <% } %>
+        </form>
+    </table>
 </body>
 
 </html>
