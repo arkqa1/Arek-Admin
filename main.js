@@ -60,6 +60,13 @@ app.get("/update", (req, res) => {
   })
 })
 
+app.get("/delete", (req, res) => {
+  pool.query(`SELECT * FROM ${req.query.d}.${req.query.t};`, (err, result, fields) => {
+    console.log(result)
+    res.render('delete', { title: "Usuń", table: req.query.t, database: req.query.d, data: result || err })
+  })
+})
+
 
 app.listen(port, () => {
   console.log(`Aplikacja dziala na porcie: ${port}`)
