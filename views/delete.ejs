@@ -8,9 +8,17 @@
     <title>
         <% title %>
     </title>
+    <link rel="stylesheet" href="./styl.css">
+    <link rel="stylesheet" href="./light.css">
+    <link rel="stylesheet" href="./dark.css">
 </head>
 
 <body>
+    <div class="bok">
+        <iframe src="/tables?d=<%= d.Database %>"></iframe>
+    </div>
+    <div class="prawo">
+        <div class="tekst">
     <form method="post" action="/delete?t=<%= table %>&d=<%= database %>">
         <table>
             <% for(name in data[0]) { %>
@@ -32,9 +40,13 @@
                     </td>
                 </tr>
             <% } %>
+            
         </table>
         <input type="submit" value="Insert">
     </form>
+    </div>
+    <div class="wynik"></div>
+    </div>
 </body>
 
 </html>

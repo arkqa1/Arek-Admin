@@ -108,8 +108,13 @@ a:hover{
     padding: 10px;
 }
 
-iframe{
+.bok iframe{
     width: 19vw;
     height: 100vh;
     border: none;
+    overflow: hidden;
+}
+
+input[type=submit]:NOT(.no) {
+    position: absolute;
 }

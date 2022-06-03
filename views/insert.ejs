@@ -15,13 +15,14 @@
 
 <body>
     <div class="bok">
-        <iframe src="/databases"></iframe>
+        <iframe src="/tables?d=<%= d.Database %>"></iframe>
     </div>
     <div class="prawo">
         <div class="tekst">
-            <table>
+            
                 <form method="post" action="/insert?d=<%= database %>&t=<%= table %>">
-                    <% for(col of columns) { %>
+                    <table>
+                        <% for(col of columns) { %>
                         <tr>
                             <td>
                                 <%= col.column_name %>
@@ -29,9 +30,12 @@
                             </td>
                         </tr><br>
                     <% } %>
-                    <input type="submit" value="Insert">
+                </table>
+                <input type="submit" value="Insert">
                 </form>
-            </table>
+                
+            
+            
         </div>
         <div class="wynik">
 

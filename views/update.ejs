@@ -8,9 +8,15 @@
     <title>
         <% title %>
     </title>
+    <link rel="stylesheet" href="./styl.css">
+    <link rel="stylesheet" href="./light.css">
+    <link rel="stylesheet" href="./dark.css">
 </head>
 
 <body>
+    <div class="bok"></div>
+    <div class="prawo">
+        <div class="tekst">
     <table>
         <% for(name in data[0]) { %>
             <th>
@@ -26,12 +32,15 @@
                         </td>
                     <% } %>
                     <td>
-                        <input type="submit" value="Insert">
+                        <input type="submit" value="Insert" class="no">
                     </td>
                 </tr>
             <% } %>
         </form>
     </table>
+</div>
+<div class="wynik"></div>
+</div>
 </body>
 
 </html>

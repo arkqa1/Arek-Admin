@@ -10,22 +10,18 @@
     <title><%= title %></title>
 </head>
 <body>
-<div class="bok">
-    <a href="/databases">Databases</a>
+<div class="bok" style="width: 100vw; border: none;">
+    <a href="/databases" target="_top">Databases</a>
     <ul>
         <% for(t of tables) { %>
             <li>
-                <a href="/table?t=<%= t.table_name %>&d=<%= database %>"> View <%= t.table_name %></a>
-                <a href="/insert?t=<%= t.table_name %>&d=<%= database %>"> Insert <%= t.table_name %></a>
-                <a href="/update?t=<%= t.table_name %>&d=<%= database %>"> Update <%= t.table_name %></a>
-                <a href="/delete?t=<%= t.table_name %>&d=<%= database %>"> Delete <%= t.table_name %></a>
+                <a target="_TOP" href="/table?t=<%= t.table_name %>&d=<%= database %>"> View <%= t.table_name %></a>
+                <a target="_TOP" href="/insert?t=<%= t.table_name %>&d=<%= database %>"> Insert <%= t.table_name %></a>
+                <a target="_TOP" href="/update?t=<%= t.table_name %>&d=<%= database %>"> Update <%= t.table_name %></a>
+                <a target="_TOP" href="/delete?t=<%= t.table_name %>&d=<%= database %>"> Delete <%= t.table_name %></a>
             </li>
         <% } %>
     </ul>
-</div>
-<div class="prawo">
-    <div class="tekst"></div>
-    <div class="wynik"></div>
 </div>
 </body>
 </html>
