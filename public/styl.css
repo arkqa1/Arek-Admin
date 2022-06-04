@@ -16,6 +16,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 
     width: 20vw;
     height: 100vh;
@@ -118,3 +119,20 @@ a:hover{
 input[type=submit]:NOT(.no) {
     position: absolute;
 }
+
+.glowna {
+    background-color: var(--dark_left_bgc);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.glowna p a{
+    color: var(--primary_c);
+    text-decoration: none;
+    font-size: larger;
+}
+

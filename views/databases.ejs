@@ -5,14 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
+    <link rel="stylesheet" href="./styl.css">
+    <link rel="stylesheet" href="./light.css">
+    <link rel="stylesheet" href="./dark.css">
 </head>
 <body>
-    <ul>
+    <div class="glowna">
+
         <% for(d of databases) { %>
-            <li>
+            <p>
                 <a target="_top" href="/tables?d=<%= d.Database %>"><%= d.Database %></a>
-            </li>
+            </p>
         <% } %> 
-    </ul>
+
+</div>
 </body>
 </html>
