@@ -136,3 +136,12 @@ input[type=submit]:NOT(.no) {
     font-size: larger;
 }
 
+.boczny a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: var(--primary_c);
+    text-decoration: none;
+}
+
