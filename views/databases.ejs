@@ -11,10 +11,13 @@
 </head>
 <body>
     <div class="glowna">
-
+        <a href="/query">
+            Zapytanie
+        </a>
+        <hr width="90%">
         <% for(d of databases) { %>
             <p>
-                <a target="_top" href="/tables?d=<%= d.Database %>"><%= d.Database %></a>
+                <a href="/tables?d=<%= d.Database %>"><%= d.Database %></a>
             </p>
         <% } %> 
 

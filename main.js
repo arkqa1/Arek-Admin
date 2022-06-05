@@ -53,21 +53,18 @@ app.get("/tables", (req, res) => {
 
 app.get("/insert", (req, res) => {
   pool.query(`SELECT DISTINCT column_name FROM information_schema.columns WHERE table_name='${req.query.t}';`, (err, result, fields) => {
-    console.log(result)
     res.render('insert', { title: "Dodaj", table: req.query.t, database: req.query.d, columns: result || err })
   })
 })
 
 app.get("/update", (req, res) => {
   pool.query(`SELECT * FROM ${req.query.d}.${req.query.t};`, (err, result, fields) => {
-    console.log(result)
     res.render('update', { title: "Aktualizuj", database: req.query.d, table: req.query.t, data: result || err })
   })
 })
 
 app.get("/delete", (req, res) => {
   pool.query(`SELECT * FROM ${req.query.d}.${req.query.t};`, (err, result, fields) => {
-    console.log(result)
     res.render('delete', { title: "Usuń", table: req.query.t, database: req.query.d, data: result || err })
   })
 })
@@ -96,6 +93,16 @@ app.post("/insert", (req, res) => {
 //   // })
 // })
 
+app.get("/query", (req, res) => {
+  res.render('query', { title: "Zapytanie" })
+})
+
+app.post("/query", (req, res) => {
+  const query = req.body.command
+  pool.query(query, (err, result, fields) => {
+    res.render('query-result', { title: "Zapytanie", query: req.body.query, data: result, error: err })
+  })
+})
 
 app.listen(port, () => {
   console.log(`Aplikacja dziala na porcie: ${port}`)

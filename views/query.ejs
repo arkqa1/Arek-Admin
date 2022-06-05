@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +7,9 @@
     <title><%= %></title>
 </head>
 <body>
-    
+    <form action="/query" method="post">
+        <textarea name="command" cols="30" rows="10"></textarea>
+        <input type="submit" value="Wykonaj">
+    </form>
 </body>
 </html>

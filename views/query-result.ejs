@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+</head>
+<body>
+    <p><%= query %></p>
+    Result:
+    <% if (error == undefined && data != undefined ) { %>
+    <table>
+        <% for(name in data[0]) { %>
+            <th>
+                <%= name %>
+            </th>
+        <% } %>
+        <% for(element of data) { %>
+        <tr>
+            <% for(key in element) { %>
+            <td>
+                <div class="wartosc">
+                <%= element[key] %>
+                </div>
+            </td>
+            <% } %>
+        </tr>
+        <% } %>
+    </table>
+    <% } else { %>
+        <p><%= error == undefined ? "error" : error %></p>
+    <% } %>
+    <a  href="/query">
+        Następne zapytanie
+    </a>
+</body>
+</html>

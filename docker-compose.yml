@@ -5,9 +5,9 @@ services:
     image: mariadb
     restart: unless-stopped
     environment:
-      MARIADB_ROOT_PASSWORD: adm12345
-      MARIADB_USER: ${DB_USER}
-      MARIADB_PASSWORD: ${DB_PASSWORD}
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      # MARIADB_USER: ${DB_USER}
+      # MARIADB_PASSWORD: ${DB_PASSWORD}
     ports:
       - 3306:3306
     volumes:

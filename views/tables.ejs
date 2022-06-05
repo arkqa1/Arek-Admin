@@ -13,6 +13,7 @@
 <div class="bok" style="width: 100vw; border: none;">
     <div class="boczny">
     <a href="/databases" target="_top">Databases</a>
+    <hr width="90%">
         <% for(t of tables) { %>
                 <a target="_TOP" href="/table?t=<%= t.table_name %>&d=<%= database %>"> View <%= t.table_name %></a>
                 <a target="_TOP" href="/insert?t=<%= t.table_name %>&d=<%= database %>"> Insert <%= t.table_name %></a>
