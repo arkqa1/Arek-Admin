@@ -35,25 +35,26 @@ app.get('/', (req, res) => {
 
 app.get('/table', (req, res) => {
   pool.query(`SELECT * FROM ${req.query.d}.${req.query.t};`, (err, result, fields) => {
-    res.render('table', { title: "Lista", data: result || err })
+    res.render('table', { title: "Lista", database: req.query.d, data: result })
   })
 })
 
 app.get("/databases", (req, res) => { 
   pool.query(`SHOW DATABASES;`, (err, result, fields) => {
-    res.render('databases', { title: "Baza Danych", databases: result || err })
+    res.render('databases', { title: "Baza Danych", databases: result })
   })
 })
 
 app.get("/tables", (req, res) => {
-  pool.query(`SELECT table_name FROM information_schema.tables WHERE table_schema='${req.query.d}';`, (err, result, fields) => {
-    res.render('tables', { title: "Tabele", database: req.query.d, tables: result || err })
+  pool.query(`SELECT table_name, table_schema FROM information_schema.tables WHERE table_schema='${req.query.d}';`, (err, result, fields) => {
+    console.log(result)
+    res.render('tables', { title: "Tabele", database: req.query.d, tables: result })
   })
 })
 
 app.get("/insert", (req, res) => {
   pool.query(`SELECT DISTINCT column_name FROM information_schema.columns WHERE table_name='${req.query.t}';`, (err, result, fields) => {
-    res.render('insert', { title: "Dodaj", table: req.query.t, database: req.query.d, columns: result || err })
+    res.render('insert', { title: "Dodaj", database: req.query.d, table: req.query.t, columns: result || err })
   })
 })
 
@@ -65,7 +66,7 @@ app.get("/update", (req, res) => {
 
 app.get("/delete", (req, res) => {
   pool.query(`SELECT * FROM ${req.query.d}.${req.query.t};`, (err, result, fields) => {
-    res.render('delete', { title: "Usuń", table: req.query.t, database: req.query.d, data: result || err })
+    res.render('delete', { title: "Usuń", database: req.query.d, table: req.query.t, data: result || err })
   })
 })
 
