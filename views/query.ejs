@@ -5,11 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= %></title>
+    <link rel="stylesheet" href="./styl.css">
+    <link rel="stylesheet" href="./light.css">
+    <link rel="stylesheet" href="./dark.css">
 </head>
 <body>
-    <form action="/query" method="post">
+    <div class="bok"><a href="/Databases">Powrót</a></div>
+    <div class="prawo">
+        <div class="tekst">
+    <form action="/query" method="post" target="wynik">
         <textarea name="command" cols="30" rows="10"></textarea>
-        <input type="submit" value="Wykonaj">
-    </form>
+        <br><input type="submit" value="Wykonaj">
+    </form></div>
+<div class="wynik"><iframe class="wynikowy" name="wynik" src="/query-result"</div>
+</div>
 </body>
 </html>
