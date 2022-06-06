@@ -22,12 +22,26 @@ body{
     width: 20vw;
     height: 100vh;
 
+
     background-color: var(--dark_left_bgc);
     border-right: 2px solid var(--primary_c);
-    
-    color: var(--dark_font_color);
     font-size: larger;
+    color: var(--dark_font_color);
+
 }
+
+@media only screen and (max-height: 1100px){
+    .bok{
+        font-size: medium;
+    }
+}
+
+@media only screen and (max-height: 800px){
+    .bok{
+        font-size: small;
+    }
+}
+
 
 .prawo{
     display: flex;
@@ -114,7 +128,8 @@ a:hover{
     width: 19vw;
     height: 100vh;
     border: none;
-    overflow: scroll;
+    overflow: hidden;
+
 }
 
 input[type=submit]:NOT(.no) {
