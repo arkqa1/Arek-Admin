@@ -3,6 +3,7 @@
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
+    s
 }
 
 body{
@@ -26,6 +27,7 @@ body{
     
     color: var(--dark_font_color);
     font-size: larger;
+    overflow: scroll;
 }
 
 .prawo{
